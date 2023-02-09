@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 
-import { FC, ReactNode, useCallback, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
+import { bgColor } from '../assets/styles/colors';
+import { Routes } from '../routes/routes';
 import Header from './Header';
-import LeftDrawer from './LeftDrawer';
 
 const StyledLayout = styled.div`
   display: flex;
@@ -10,7 +11,7 @@ const StyledLayout = styled.div`
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: #f5f5f5;
+  background: ${bgColor};
 `;
 
 const StyledMainContainer = styled.main`
@@ -18,7 +19,7 @@ const StyledMainContainer = styled.main`
   flex-direction: column;
   padding: 1.5rem 1rem;
   position: relative;
-  background: #f5f5f5;
+  background: ${bgColor};
   flex: 1;
 `;
 
@@ -27,9 +28,17 @@ interface LayoutProps {
 }
 
 const Layout: FC<LayoutProps> = ({ children }) => {
+  const [isInLoginScreen, setIsInLoginScreen] = useState(false);
+
+  useEffect(() => {
+    const path = window.location.pathname;
+
+    setIsInLoginScreen(path === Routes.login ? true : false);
+  }, [window.location.pathname]);
+
   return (
     <StyledLayout>
-      <Header />
+      {!isInLoginScreen && <Header />}
       <StyledMainContainer>{children}</StyledMainContainer>
     </StyledLayout>
   );
