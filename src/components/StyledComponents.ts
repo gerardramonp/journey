@@ -24,6 +24,10 @@ export const StyledPageH3 = styled.h3`
   font-size: 1.15rem;
 `;
 
+export const StyledPageH4 = styled.h4`
+  font-size: 1.05rem;
+`;
+
 export const StyledFullWidthImg = styled.img`
   width: 100%;
   margin-bottom: 1rem;
@@ -42,5 +46,5 @@ export const StyledTextField = styled(TextField)`
 `;
 
 export const StyledAccordion = styled(Accordion)`
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
 `;
