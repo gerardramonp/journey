@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/login/static/css/main.9f088a99.css",
-    "main.js": "/login/static/js/main.e61719d2.js",
+    "main.js": "/login/static/js/main.ce994da2.js",
     "static/js/787.2e3a8123.chunk.js": "/login/static/js/787.2e3a8123.chunk.js",
     "static/media/teotihuacan.jpeg": "/login/static/media/teotihuacan.b43edb9e17f08f70bb4e.jpeg",
     "index.html": "/login/index.html",
     "main.9f088a99.css.map": "/login/static/css/main.9f088a99.css.map",
-    "main.e61719d2.js.map": "/login/static/js/main.e61719d2.js.map",
+    "main.ce994da2.js.map": "/login/static/js/main.ce994da2.js.map",
     "787.2e3a8123.chunk.js.map": "/login/static/js/787.2e3a8123.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9f088a99.css",
-    "static/js/main.e61719d2.js"
+    "static/js/main.ce994da2.js"
   ]
 }
