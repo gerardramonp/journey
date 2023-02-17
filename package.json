@@ -1,7 +1,6 @@
 {
   "name": "journey",
-  "homepage": "http://choloscutinkle.com/login",
-
+  "homepage": "choloscutinkle.com/login",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

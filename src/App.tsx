@@ -1,10 +1,10 @@
 import Layout from './components/Layout';
 
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { routes } from './routes/routes';
 import useRouteProtection from './hooks/useRouteProtection';
 
-const router = createHashRouter(routes);
+const router = createBrowserRouter(routes);
 
 function App() {
   useRouteProtection();
