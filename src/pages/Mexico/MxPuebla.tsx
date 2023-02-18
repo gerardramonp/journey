@@ -7,8 +7,8 @@ import {
   StyledPageTitle,
   StyledText,
 } from '../../components/StyledComponents';
-import homePicture from '../../assets/photos/teotihuacan.jpeg';
-import { AccordionSummary, Typography, AccordionDetails } from '@mui/material';
+// import homePicture from '../../assets/photos/teotihuacan.jpeg';
+import { AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const MxPuebla = () => {
@@ -22,7 +22,7 @@ const MxPuebla = () => {
 
       <StyledPageH3>Cholula 🔔</StyledPageH3>
 
-      <StyledFullWidthImg src={homePicture} />
+      {/* <StyledFullWidthImg src={homePicture} /> */}
       <StyledAccordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -46,7 +46,7 @@ const MxPuebla = () => {
 
       <StyledPageH3>Pirámides de Teotihuacán</StyledPageH3>
 
-      <StyledFullWidthImg src={homePicture} />
+      {/* <StyledFullWidthImg src={homePicture} /> */}
       <StyledAccordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
