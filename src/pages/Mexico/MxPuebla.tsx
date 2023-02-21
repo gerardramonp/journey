@@ -10,6 +10,16 @@ import {
 import homePicture from '../../assets/photos/teotihuacan.jpeg';
 import { AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import CarrouselWrapper from '../../components/CarrouselWrapper';
+
+const pueblaImgs = [
+  homePicture,
+  homePicture,
+  homePicture,
+  homePicture,
+  homePicture,
+];
 
 const MxPuebla = () => {
   return (
@@ -22,7 +32,8 @@ const MxPuebla = () => {
 
       <StyledPageH3>Cholula 🔔</StyledPageH3>
 
-      <StyledFullWidthImg src={homePicture} />
+      <CarrouselWrapper pictures={pueblaImgs} />
+
       <StyledAccordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

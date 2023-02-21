@@ -48,3 +48,9 @@ export const StyledTextField = styled(TextField)`
 export const StyledAccordion = styled(Accordion)`
   margin-bottom: 3rem;
 `;
+
+export const StyledFullWidthContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
