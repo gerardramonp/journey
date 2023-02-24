@@ -70,6 +70,7 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItemButton>
+
               <ListItemButton
                 sx={{ pl: 4 }}
                 selected={pathName === Routes.mexicoPuebla}
@@ -80,6 +81,17 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
                   <ApartmentRoundedIcon />
                 </ListItemIcon>
                 <ListItemText primary="Puebla" />
+              </ListItemButton>
+              <ListItemButton
+                sx={{ pl: 4 }}
+                selected={pathName === Routes.mexicoAcapulco}
+                component="a"
+                href={Routes.mexicoAcapulco}
+              >
+                <ListItemIcon>
+                  <ApartmentRoundedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Acapulco" />
               </ListItemButton>
             </List>
           </Collapse>

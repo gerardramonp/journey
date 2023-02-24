@@ -13,8 +13,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import CarrouselWrapper from '../../components/CarrouselWrapper';
 
-const pueblaImgs = [
-  homePicture,
+const cholulaPictures = [homePicture];
+const teotihuacanPictures = [
   homePicture,
   homePicture,
   homePicture,
@@ -32,7 +32,7 @@ const MxPuebla = () => {
 
       <StyledPageH3>Cholula 🔔</StyledPageH3>
 
-      <CarrouselWrapper pictures={pueblaImgs} />
+      <CarrouselWrapper pictures={cholulaPictures} />
 
       <StyledAccordion>
         <AccordionSummary
@@ -57,7 +57,8 @@ const MxPuebla = () => {
 
       <StyledPageH3>Pirámides de Teotihuacán</StyledPageH3>
 
-      <StyledFullWidthImg src={homePicture} />
+      <CarrouselWrapper pictures={teotihuacanPictures} />
+
       <StyledAccordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}

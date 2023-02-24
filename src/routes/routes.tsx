@@ -1,6 +1,7 @@
 import { RouteObject } from 'react-router-dom';
 import Home from '../pages/Home/Home';
 import Login from '../pages/Login/Login';
+import MxAcapulco from '../pages/Mexico/MxAcapulco';
 import MxHome from '../pages/Mexico/MxHome';
 import MxPuebla from '../pages/Mexico/MxPuebla';
 import NotFound from '../pages/NotFound';
@@ -10,6 +11,7 @@ export enum Routes {
   login = '/login',
   mexicoHome = '/mexico',
   mexicoPuebla = '/mexico/puebla',
+  mexicoAcapulco = '/mexico/acapulco',
 }
 
 export const routes: RouteObject[] = [
@@ -31,6 +33,11 @@ export const routes: RouteObject[] = [
   {
     path: Routes.mexicoPuebla,
     element: <MxPuebla />,
+    errorElement: <NotFound />,
+  },
+  {
+    path: Routes.mexicoAcapulco,
+    element: <MxAcapulco />,
     errorElement: <NotFound />,
   },
 ];
