@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { FC, useState } from 'react';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-
+import { Link } from 'react-router-dom';
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import FlagRoundedIcon from '@mui/icons-material/Flag';
@@ -37,8 +37,8 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
           <ListItem key={Routes.home} disablePadding>
             <ListItemButton
               selected={pathName === Routes.home}
-              component="a"
-              href={Routes.home}
+              component={Link}
+              to={Routes.home}
             >
               <ListItemIcon>{<HomeRoundedIcon />}</ListItemIcon>
               <ListItemText primary={'Home'} />
@@ -62,8 +62,8 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
               <ListItemButton
                 sx={{ pl: 4 }}
                 selected={pathName === Routes.mexicoHome}
-                component="a"
-                href={Routes.mexicoHome}
+                component={Link}
+                to={Routes.mexicoHome}
               >
                 <ListItemIcon>
                   <HomeRoundedIcon />
@@ -74,8 +74,8 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
               <ListItemButton
                 sx={{ pl: 4 }}
                 selected={pathName === Routes.mexicoPuebla}
-                component="a"
-                href={Routes.mexicoPuebla}
+                component={Link}
+                to={Routes.mexicoPuebla}
               >
                 <ListItemIcon>
                   <ApartmentRoundedIcon />
@@ -85,8 +85,8 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
               <ListItemButton
                 sx={{ pl: 4 }}
                 selected={pathName === Routes.mexicoAcapulco}
-                component="a"
-                href={Routes.mexicoAcapulco}
+                component={Link}
+                to={Routes.mexicoAcapulco}
               >
                 <ListItemIcon>
                   <ApartmentRoundedIcon />
