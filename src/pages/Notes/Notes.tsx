@@ -3,9 +3,12 @@ import { FC, useEffect, useState } from 'react';
 import { StyledPageContainer } from '../../components/StyledComponents';
 import AddIcon from '@mui/icons-material/Add';
 import styled from '@emotion/styled';
-import { onValue, push, ref, set } from 'firebase/database';
+import { onValue, ref } from 'firebase/database';
 import { firebaseDb } from '../../firebase/config';
 import NoteCard from './NoteCard';
+
+import CreateNoteDialog from './useCreateNoteDialog';
+import { generateRandomRotation } from '../../utils/generateRandomRotation';
 
 export interface Note {
   owner: string;
@@ -24,13 +27,14 @@ const mapNotesToArray = (data: any) => {
     }
   }
 
-  return notes;
+  return notes.sort((a, b) => (b.timestamp as any) - (a.timestamp as any));
 };
 
 const StyledFab = styled(Fab)`
   position: absolute;
   bottom: 1.25rem;
   right: 1.25rem;
+  z-index: 10;
 `;
 
 const StyledNotesContainer = styled.div`
@@ -40,12 +44,17 @@ const StyledNotesContainer = styled.div`
   height: 100%;
   padding: 1rem;
   overflow-y: scroll;
-  row-gap: 1.5rem;
+  row-gap: 2.5rem;
 `;
 
 const Notes: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [notes, setNotes] = useState<Note[]>([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsModalOpen(true);
+  };
 
   useEffect(() => {
     const dbNotesRef = ref(firebaseDb, 'notes');
@@ -66,17 +75,24 @@ const Notes: FC = () => {
   }
 
   return (
-    <StyledPageContainer>
-      <StyledNotesContainer>
-        {notes.map((note) => (
-          <NoteCard key={`${note.timestamp}`} note={note} />
-        ))}
-      </StyledNotesContainer>
+    <>
+      <StyledPageContainer>
+        <StyledNotesContainer>
+          {notes.map((note) => (
+            <NoteCard
+              key={`${note.timestamp}`}
+              note={note}
+              rotation={generateRandomRotation()}
+            />
+          ))}
+        </StyledNotesContainer>
 
-      <StyledFab color="primary" aria-label="add" onClick={() => {}}>
+        <CreateNoteDialog isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+      </StyledPageContainer>
+      <StyledFab color="primary" aria-label="add" onClick={handleOpen}>
         <AddIcon />
       </StyledFab>
-    </StyledPageContainer>
+    </>
   );
 };
 

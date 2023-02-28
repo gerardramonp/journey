@@ -8,8 +8,17 @@ interface ProtectedRouteProps {
 
 const ProtectedRoute: FC<ProtectedRouteProps> = ({ element }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
+  const isUserNameConfigured = localStorage.getItem('username');
 
-  return isLoggedIn ? element : <Navigate to={Routes.login} replace={true} />;
+  if (!isLoggedIn || !isUserNameConfigured) {
+    localStorage.clear();
+  }
+
+  return isLoggedIn && isUserNameConfigured ? (
+    element
+  ) : (
+    <Navigate to={Routes.login} replace={true} />
+  );
 };
 
 export default ProtectedRoute;

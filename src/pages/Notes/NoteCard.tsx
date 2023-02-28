@@ -6,18 +6,19 @@ import { Note } from './Notes';
 
 interface NoteCardProps {
   note: Note;
+  rotation: number;
 }
 
 const brisaColor = '#A7CDF6';
 const gerardColor = '#94D476';
 
-const StyledNoteContainer = styled(Paper)`
+const StyledNoteContainer = styled<any>(Paper)`
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 1.25rem;
   background-color: ${(props) => props.color};
-  transform: rotate(2deg);
+  transform: rotate(${(props) => props.rotation}deg);
 `;
 
 const StyledNoteTitle = styled.h3`
@@ -41,11 +42,12 @@ const StyledNoteDetails = styled.div`
   font-weight: bold;
 `;
 
-const NoteCard: FC<NoteCardProps> = ({ note }) => {
+const NoteCard: FC<NoteCardProps> = ({ note, rotation }) => {
   return (
     <StyledNoteContainer
       color={note.owner === 'brisa' ? brisaColor : gerardColor}
       elevation={5}
+      rotation={rotation}
     >
       <StyledNoteTitle>{note.title}</StyledNoteTitle>
       <StyledNoteText>{note.content}</StyledNoteText>

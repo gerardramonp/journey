@@ -51,8 +51,9 @@ const Login: FC = () => {
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
+    const isUserNameConfigured = localStorage.getItem('username');
 
-    if (isLoggedIn === 'true') {
+    if (isLoggedIn === 'true' && isUserNameConfigured) {
       window.location.pathname = Routes.home;
     }
   }, []);
