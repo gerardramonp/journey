@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { FC, useState } from 'react';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import { StarBorder } from '@mui/icons-material';
+
 import ExpandLessRoundedIcon from '@mui/icons-material/ExpandLessRounded';
 import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import FlagRoundedIcon from '@mui/icons-material/Flag';

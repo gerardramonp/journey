@@ -1,19 +1,15 @@
 import { FC } from 'react';
-import { Navigate, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { Routes } from '../routes/routes';
 
 interface ProtectedRouteProps {
-  path: string;
-  element: React.ReactNode;
+  element: React.ReactElement;
 }
 
-const ProtectedRoute: FC<ProtectedRouteProps> = ({ path, element }) => {
+const ProtectedRoute: FC<ProtectedRouteProps> = ({ element }) => {
   const isLoggedIn = localStorage.getItem('isLoggedIn');
 
-  if (!isLoggedIn) {
-    return <Navigate to="/login" replace={true} />;
-  }
-
-  return <Route path={path} element={element} />;
+  return isLoggedIn ? element : <Navigate to={Routes.login} replace={true} />;
 };
 
 export default ProtectedRoute;

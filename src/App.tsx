@@ -1,17 +1,12 @@
 import Layout from './components/Layout';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { routes } from './routes/routes';
-import useRouteProtection from './hooks/useRouteProtection';
-
-const router = createBrowserRouter(routes);
+import { Outlet } from 'react-router-dom';
 
 function App() {
-  useRouteProtection();
   return (
     <div className="App">
       <Layout>
-        <RouterProvider router={router} />
+        <Outlet />
       </Layout>
     </div>
   );

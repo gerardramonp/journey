@@ -1,4 +1,3 @@
-import styled from '@emotion/styled';
 import { FC } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -12,8 +11,8 @@ const CarrouselWrapper: FC<CarrouselWrapperProps> = ({ pictures }) => {
   return (
     <StyledFullWidthContainer className="carrousel-wrapper">
       <Carousel autoPlay infiniteLoop>
-        {pictures.map((picture) => (
-          <div>
+        {pictures.map((picture, index) => (
+          <div key={`carrousel-pic-${index}`}>
             <img
               src={picture}
               alt="carrouselpic"
