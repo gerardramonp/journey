@@ -1,6 +1,5 @@
 import {
   StyledAccordion,
-  StyledFullWidthImg,
   StyledPageContainer,
   StyledPageH3,
   StyledPageH4,

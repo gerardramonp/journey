@@ -96,6 +96,7 @@ const Login: FC = () => {
           });
         } else {
           window.localStorage.setItem('isLoggedIn', 'true');
+          window.localStorage.setItem('username', loginState.username);
           navigate(Routes.home);
         }
       }

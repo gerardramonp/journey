@@ -16,6 +16,7 @@ import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
 import FlagRoundedIcon from '@mui/icons-material/Flag';
 import ApartmentRoundedIcon from '@mui/icons-material/ApartmentRounded';
 import { Routes } from '../routes/routes';
+import TextSnippetRoundedIcon from '@mui/icons-material/TextSnippetRounded';
 
 interface LeftDrawerProps {
   isOpen: boolean;
@@ -42,6 +43,17 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
             >
               <ListItemIcon>{<HomeRoundedIcon />}</ListItemIcon>
               <ListItemText primary={'Home'} />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem key={Routes.notes} disablePadding>
+            <ListItemButton
+              selected={pathName === Routes.notes}
+              component={Link}
+              to={Routes.notes}
+            >
+              <ListItemIcon>{<TextSnippetRoundedIcon />}</ListItemIcon>
+              <ListItemText primary={'Notas'} />
             </ListItemButton>
           </ListItem>
 
