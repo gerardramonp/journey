@@ -1,9 +1,13 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { cardBgColor } from '../../assets/styles/colors';
 import { StyledTextField } from '../../components/StyledComponents';
 import { Routes } from '../../routes/routes';
+
+import { onValue, ref, set } from 'firebase/database';
+import { firebaseDb } from '../../firebase/config';
+import { useNavigate } from 'react-router-dom';
 
 const StyledLoginContainer = styled.div`
   display: flex;
@@ -31,15 +35,18 @@ const StyledFormTitle = styled.h2`
 
 interface LoginForm {
   isError: boolean;
+  username: string;
   password: string;
 }
 
 const initialState: LoginForm = {
   isError: false,
+  username: '',
   password: '',
 };
 
-const Login = () => {
+const Login: FC = () => {
+  const navigate = useNavigate();
   const [loginState, setLoginState] = useState<LoginForm>(initialState);
 
   useEffect(() => {
@@ -50,25 +57,49 @@ const Login = () => {
     }
   }, []);
 
-  const handleChange = ({
+  const handleUserChange = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
     setLoginState({
+      ...loginState,
+      isError: false,
+      username: value,
+    });
+  };
+
+  const handlePassChange = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setLoginState({
+      ...loginState,
       isError: false,
       password: value,
     });
   };
 
   const handleSubmit = () => {
-    if (loginState.password === 'miqueta0102') {
-      window.localStorage.setItem('isLoggedIn', 'true');
-      window.location.pathname = Routes.home;
-    } else {
-      setLoginState({
-        ...loginState,
-        isError: true,
-      });
-    }
+    const dbRef = ref(firebaseDb, 'users/' + loginState.username);
+
+    onValue(dbRef, (snapshot) => {
+      const user = snapshot.val();
+
+      if (!user) {
+        setLoginState({
+          ...loginState,
+          isError: true,
+        });
+      } else {
+        if (user.password !== loginState.password) {
+          setLoginState({
+            ...loginState,
+            isError: true,
+          });
+        } else {
+          window.localStorage.setItem('isLoggedIn', 'true');
+          navigate(Routes.home);
+        }
+      }
+    });
   };
 
   return (
@@ -78,10 +109,18 @@ const Login = () => {
         <StyledTextField
           helperText={loginState.isError ? 'Fora aquest' : null}
           error={loginState.isError}
+          label="Username"
+          size="small"
+          type="text"
+          onChange={handleUserChange}
+        />
+        <StyledTextField
+          helperText={loginState.isError ? 'Fora aquest' : null}
+          error={loginState.isError}
           label="Password"
           size="small"
           type="password"
-          onChange={handleChange}
+          onChange={handlePassChange}
         />
         <Button variant="contained" onClick={handleSubmit}>
           Log in
