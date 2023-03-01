@@ -12,6 +12,7 @@ const StyledLayout = styled.div`
   width: 100vw;
   height: 100vh;
   background: ${bgColor};
+  overflow: auto;
 `;
 
 const StyledMainContainer = styled.main`
@@ -20,7 +21,13 @@ const StyledMainContainer = styled.main`
   padding: 1.5rem 1rem;
   position: relative;
   background: ${bgColor};
+  width: 100%;
   flex: 1;
+
+  @media (min-width: 768px) {
+    max-width: 450px;
+    margin: auto;
+  }
 `;
 
 interface LayoutProps {
@@ -37,7 +44,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   }, [window.location.pathname]);
 
   return (
-    <StyledLayout>
+    <StyledLayout className="layout">
       {!isInLoginScreen && <Header />}
       <StyledMainContainer>{children}</StyledMainContainer>
     </StyledLayout>

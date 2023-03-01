@@ -31,20 +31,20 @@ const mapNotesToArray = (data: any) => {
 };
 
 const StyledFab = styled(Fab)`
-  position: absolute;
+  position: sticky;
   bottom: 1.25rem;
-  right: 1.25rem;
+  left: 100%;
   z-index: 10;
 `;
 
 const StyledNotesContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   height: 100%;
   padding: 1rem;
-  overflow-y: scroll;
   row-gap: 2.5rem;
+  position: relative;
 `;
 
 const Notes: FC = () => {

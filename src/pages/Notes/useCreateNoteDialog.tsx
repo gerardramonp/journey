@@ -37,6 +37,10 @@ const CreateNoteDialog: FC<CreateNoteDialogProps> = ({ isOpen, setIsOpen }) => {
   const [isError, setIsError] = useState<boolean>(false);
 
   const handleClose = () => {
+    setState({
+      title: '',
+      content: '',
+    });
     setIsOpen(false);
   };
 
@@ -54,6 +58,7 @@ const CreateNoteDialog: FC<CreateNoteDialogProps> = ({ isOpen, setIsOpen }) => {
       };
 
       set(newNoteRef, newNote);
+      handleClose();
     }
   };
 
@@ -62,6 +67,7 @@ const CreateNoteDialog: FC<CreateNoteDialogProps> = ({ isOpen, setIsOpen }) => {
       ...state,
       title: e.target.value,
     });
+    setIsError(false);
   };
 
   const changeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -69,6 +75,7 @@ const CreateNoteDialog: FC<CreateNoteDialogProps> = ({ isOpen, setIsOpen }) => {
       ...state,
       content: e.target.value,
     });
+    setIsError(false);
   };
 
   return (
