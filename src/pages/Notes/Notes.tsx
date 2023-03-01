@@ -31,9 +31,9 @@ const mapNotesToArray = (data: any) => {
 };
 
 const StyledFab = styled(Fab)`
-  position: sticky;
+  position: absolute;
   bottom: 1.25rem;
-  left: 100%;
+  right: 1.25rem;
   z-index: 10;
 `;
 
