@@ -23,6 +23,8 @@ const StyledMainContainer = styled.main`
   background: ${bgColor};
   width: 100%;
   flex: 1;
+  height: calc(100vh - 4rem);
+  overflow: auto;
 
   @media (min-width: 768px) {
     max-width: 450px;
