@@ -1,9 +1,10 @@
 import styled from '@emotion/styled';
-import { Paper } from '@mui/material';
+import { IconButton, Paper } from '@mui/material';
 import { FC } from 'react';
 import formatTimeStamp from '../../utils/formatDate';
 import { Note } from './Notes';
 
+import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 interface NoteCardProps {
   note: Note;
   rotation: number;
@@ -19,6 +20,13 @@ const StyledNoteContainer = styled<any>(Paper)`
   padding: 1.25rem;
   background-color: ${(props) => props.color};
   transform: rotate(${(props) => props.rotation}deg);
+`;
+
+const StyledNoteTitleContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const StyledNoteTitle = styled.h3`
@@ -49,7 +57,12 @@ const NoteCard: FC<NoteCardProps> = ({ note, rotation }) => {
       elevation={5}
       rotation={rotation}
     >
-      <StyledNoteTitle>{note.title}</StyledNoteTitle>
+      <StyledNoteTitleContainer>
+        <StyledNoteTitle>{note.title}</StyledNoteTitle>
+        <IconButton aria-label="delete">
+          <MoreVertRoundedIcon />
+        </IconButton>
+      </StyledNoteTitleContainer>
       <StyledNoteText>{note.content}</StyledNoteText>
 
       <StyledNoteDetails>

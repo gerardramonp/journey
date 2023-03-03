@@ -12,8 +12,6 @@ const root = ReactDOM.createRoot(
 
 const router = createBrowserRouter(routes);
 
-localStorage.setItem('dialogOpened', 'false');
-
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
