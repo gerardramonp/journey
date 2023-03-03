@@ -9,26 +9,17 @@ import {
 import { FC, useState } from 'react';
 
 interface NoteMenuProps {
-  anchor: HTMLElement | null;
+  isOpen: boolean;
+  anchorEl: null | HTMLElement;
+  handleClose: () => void;
 }
 
-const NoteMenu: FC<NoteMenuProps> = ({ anchor }) => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+const NoteMenu: FC<NoteMenuProps> = ({ isOpen, anchorEl, handleClose }) => {
   return (
     <Menu
       id="basic-menu"
       anchorEl={anchorEl}
-      open={open}
+      open={isOpen}
       onClose={handleClose}
       MenuListProps={{
         'aria-labelledby': 'basic-button',
@@ -39,7 +30,7 @@ const NoteMenu: FC<NoteMenuProps> = ({ anchor }) => {
           <ListItemIcon>
             <ContentPaste fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Paste</ListItemText>
+          <ListItemText>Edit</ListItemText>
         </MenuItem>
       </MenuList>
     </Menu>

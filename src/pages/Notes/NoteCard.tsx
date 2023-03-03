@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
 import { IconButton, Paper } from '@mui/material';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import formatTimeStamp from '../../utils/formatDate';
 import { Note } from './Notes';
 
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
+import NoteMenu from './NoteMenu';
 interface NoteCardProps {
   note: Note;
   rotation: number;
@@ -27,12 +28,12 @@ const StyledNoteTitleContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 `;
 
 const StyledNoteTitle = styled.h3`
   font-size: 1.75rem;
   font-weight: bold;
-  margin-bottom: 1rem;
 `;
 
 const StyledNoteText = styled.p`
@@ -51,6 +52,17 @@ const StyledNoteDetails = styled.div`
 `;
 
 const NoteCard: FC<NoteCardProps> = ({ note, rotation }) => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const isMenuOpen = Boolean(anchorEl);
+
+  const handleOpenMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <StyledNoteContainer
       color={note.owner === 'brisa' ? brisaColor : gerardColor}
@@ -59,9 +71,14 @@ const NoteCard: FC<NoteCardProps> = ({ note, rotation }) => {
     >
       <StyledNoteTitleContainer>
         <StyledNoteTitle>{note.title}</StyledNoteTitle>
-        <IconButton aria-label="delete">
+        <IconButton aria-label="delete" onClick={handleOpenMenu}>
           <MoreVertRoundedIcon />
         </IconButton>
+        <NoteMenu
+          isOpen={isMenuOpen}
+          handleClose={handleCloseMenu}
+          anchorEl={anchorEl}
+        />
       </StyledNoteTitleContainer>
       <StyledNoteText>{note.content}</StyledNoteText>
 
