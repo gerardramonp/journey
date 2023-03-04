@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
-import { IconButton, Paper } from '@mui/material';
-import { FC, useState } from 'react';
+import { Paper } from '@mui/material';
+import { FC } from 'react';
 import formatTimeStamp from '../../utils/formatDate';
 import { Note } from './Notes';
 
-import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import NoteMenu from './NoteMenu';
 interface NoteCardProps {
   note: Note;
@@ -52,16 +51,8 @@ const StyledNoteDetails = styled.div`
 `;
 
 const NoteCard: FC<NoteCardProps> = ({ note, rotation }) => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const isMenuOpen = Boolean(anchorEl);
-
-  const handleOpenMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleCloseMenu = () => {
-    setAnchorEl(null);
-  };
+  const userName = localStorage.getItem('username');
+  const isOwner = note.owner === userName;
 
   return (
     <StyledNoteContainer
@@ -71,14 +62,7 @@ const NoteCard: FC<NoteCardProps> = ({ note, rotation }) => {
     >
       <StyledNoteTitleContainer>
         <StyledNoteTitle>{note.title}</StyledNoteTitle>
-        <IconButton aria-label="delete" onClick={handleOpenMenu}>
-          <MoreVertRoundedIcon />
-        </IconButton>
-        <NoteMenu
-          isOpen={isMenuOpen}
-          handleClose={handleCloseMenu}
-          anchorEl={anchorEl}
-        />
+        {isOwner && <NoteMenu />}
       </StyledNoteTitleContainer>
       <StyledNoteText>{note.content}</StyledNoteText>
 
