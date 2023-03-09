@@ -15,7 +15,7 @@ import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import { FC, useState } from 'react';
 import { firebaseDb } from '../../firebase/config';
 import toast from 'react-hot-toast';
-import { ref, remove } from 'firebase/database';
+import { ref, remove, update } from 'firebase/database';
 
 interface NoteMenuProps {
   noteId: string;
@@ -37,10 +37,10 @@ const NoteMenu: FC<NoteMenuProps> = ({ noteId = '' }) => {
     if (confirm('Are you sure you want to delete this note?')) {
       try {
         const notesRef = ref(firebaseDb, `notes/${noteId}`);
-        remove(notesRef);
+        update(notesRef, {
+          isDisplayed: false,
+        });
       } catch (error) {
-        console.log(error);
-
         toast.error('No se pudo borrar la nota. Intenta de nuevo. ☹️');
       }
     }
