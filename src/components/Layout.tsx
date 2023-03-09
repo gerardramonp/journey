@@ -4,6 +4,7 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 import { bgColor } from '../assets/styles/colors';
 import { Routes } from '../routes/routes';
 import Header from './Header';
+import { Toaster } from 'react-hot-toast';
 
 const StyledLayout = styled.div`
   display: flex;
@@ -49,6 +50,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     <StyledLayout className="layout">
       {!isInLoginScreen && <Header />}
       <StyledMainContainer>{children}</StyledMainContainer>
+      <Toaster position="top-center" />
     </StyledLayout>
   );
 };

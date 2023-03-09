@@ -8,6 +8,7 @@ import {
   styled,
 } from '@mui/material';
 import Textarea from '@mui/joy/Textarea';
+import toast from 'react-hot-toast';
 
 import { FC, useState } from 'react';
 import { Note } from './Notes';
@@ -44,7 +45,7 @@ const CreateNoteDialog: FC<CreateNoteDialogProps> = ({ isOpen, setIsOpen }) => {
     setIsOpen(false);
   };
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (state.title === '' || state.content === '') {
       setIsError(true);
     } else {
@@ -55,10 +56,30 @@ const CreateNoteDialog: FC<CreateNoteDialogProps> = ({ isOpen, setIsOpen }) => {
         title: state.title,
         content: state.content,
         timestamp: Date.now() as any,
+        isDisplayed: true,
       };
 
-      set(newNoteRef, newNote);
-      handleClose();
+      try {
+        set(newNoteRef, newNote);
+        handleClose();
+      } catch (error) {
+        try {
+          set(newNoteRef, newNote);
+          handleClose();
+        } catch (error) {
+          try {
+            await navigator.clipboard.writeText(state.content);
+            toast.error(
+              'Error al crear la nota, se ha copiado en el portapapeles.'
+            );
+            handleClose();
+          } catch (err: any) {
+            toast.error(
+              'Sorry, tampoco se ha podido copiar en el portapapeles. Intenta de nuevo.'
+            );
+          }
+        }
+      }
     }
   };
 

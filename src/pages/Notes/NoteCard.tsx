@@ -62,7 +62,7 @@ const NoteCard: FC<NoteCardProps> = ({ note, rotation }) => {
     >
       <StyledNoteTitleContainer>
         <StyledNoteTitle>{note.title}</StyledNoteTitle>
-        {isOwner && <NoteMenu />}
+        {isOwner && <NoteMenu noteId={note.id || ''} />}
       </StyledNoteTitleContainer>
       <StyledNoteText>{note.content}</StyledNoteText>
 

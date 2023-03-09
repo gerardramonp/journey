@@ -15,15 +15,21 @@ export interface Note {
   title: string;
   content: string;
   timestamp: Date;
+  isDisplayed: boolean;
+  id?: string;
 }
 
-const mapNotesToArray = (data: any) => {
+const mapNotesToArray = (data: any): Note[] => {
   const notes: Note[] = [];
 
   for (const key in data) {
     if (Object.prototype.hasOwnProperty.call(data, key)) {
       const note = data[key];
-      notes.push(note);
+
+      if (note.isDisplayed) {
+        const noteWithId = { ...note, id: key };
+        notes.push(noteWithId);
+      }
     }
   }
 
@@ -50,6 +56,7 @@ const StyledNotesContainer = styled.div`
 const Notes: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [notes, setNotes] = useState<Note[]>([]);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpen = () => {
@@ -64,6 +71,7 @@ const Notes: FC = () => {
 
       if (data) {
         const notes = mapNotesToArray(data);
+
         setNotes(notes);
         setIsLoading(false);
       }
