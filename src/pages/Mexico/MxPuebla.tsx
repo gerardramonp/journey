@@ -6,19 +6,16 @@ import {
   StyledPageTitle,
   StyledText,
 } from '../../components/StyledComponents';
-import homePicture from '../../assets/photos/teotihuacan.jpeg';
+import homePicture from '../../assets/photos/mexico/home/teotihuacan.jpeg';
 import { AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import CarrouselWrapper from '../../components/CarrouselWrapper';
+import { teotihuacanPhotos } from './photos';
+
+console.log(teotihuacanPhotos);
 
 const cholulaPictures = [homePicture];
-const teotihuacanPictures = [
-  homePicture,
-  homePicture,
-  homePicture,
-  homePicture,
-];
 
 const MxPuebla = () => {
   return (
@@ -56,7 +53,7 @@ const MxPuebla = () => {
 
       <StyledPageH3>Pirámides de Teotihuacán</StyledPageH3>
 
-      <CarrouselWrapper pictures={teotihuacanPictures} />
+      <CarrouselWrapper pictures={teotihuacanPhotos} />
 
       <StyledAccordion>
         <AccordionSummary

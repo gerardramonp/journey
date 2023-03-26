@@ -4,7 +4,7 @@ import {
   StyledPageTitle,
   StyledText,
 } from '../../components/StyledComponents';
-import homePicture from '../../assets/photos/teotihuacan.jpeg';
+import homePicture from '../../assets/photos/mexico/home/teotihuacan.jpeg';
 
 const MxHome = () => {
   return (

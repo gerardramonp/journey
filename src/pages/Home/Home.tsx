@@ -4,8 +4,9 @@ import {
   StyledPageContainer,
 } from '../../components/StyledComponents';
 import { Routes } from '../../routes/routes';
-import homePicture from '../../assets/photos/teotihuacan.jpeg';
+import homePicture from '../../assets/photos/mexico/home/random.jpg';
 import TripCard from './TripCard';
+import NoteAddRoundedIcon from '@mui/icons-material/NoteAddRounded';
 
 const StyledTitle = styled.h2`
   margin-bottom: 1rem;
@@ -17,7 +18,7 @@ const StyledDestinationsTitle = styled.h3`
   font-size: 1.5rem;
 `;
 
-const StyledTripsContainer = styled.div`
+const StyledFeaturesContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
@@ -28,14 +29,19 @@ const StyledTripsContainer = styled.div`
 const Home = () => {
   return (
     <StyledPageContainer>
-      <StyledTitle>Placeholder title</StyledTitle>
+      <StyledTitle>Nuestra miqueta</StyledTitle>
       <StyledFullWidthImg src={homePicture} alt="home-img" />
 
       <StyledDestinationsTitle>Choose destination</StyledDestinationsTitle>
 
-      <StyledTripsContainer>
+      <StyledFeaturesContainer>
+        <TripCard
+          icon={<NoteAddRoundedIcon fontSize="large" />}
+          title="Notas"
+          path={Routes.notes}
+        />
         <TripCard countryCode="MX" title="Mexico" path={Routes.mexicoHome} />
-      </StyledTripsContainer>
+      </StyledFeaturesContainer>
     </StyledPageContainer>
   );
 };

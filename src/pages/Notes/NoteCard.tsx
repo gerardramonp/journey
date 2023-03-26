@@ -36,7 +36,7 @@ const StyledNoteTitle = styled.h3`
 `;
 
 const StyledNoteText = styled.p`
-  font-family: 'Reenie Beanie';
+  font-family: 'Edu NSW ACT Foundation', cursive;
   font-size: 1.75rem;
   margin-bottom: 1.25rem;
 `;
