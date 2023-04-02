@@ -6,13 +6,12 @@ import {
   StyledPageTitle,
   StyledText,
 } from '../../components/StyledComponents';
-import homePicture from '../../assets/photos/mexico/home/teotihuacan.jpeg';
+
 import { AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import CarrouselWrapper from '../../components/CarrouselWrapper';
-
-const cholulaPictures = [homePicture];
+import { acapulcoPhotos } from './photos';
 
 const MxAcapulco = () => {
   return (
@@ -23,18 +22,34 @@ const MxAcapulco = () => {
 
       <StyledPageH3>Los first tacosss!! 🌮</StyledPageH3>
 
-      <CarrouselWrapper pictures={cholulaPictures} />
+      <CarrouselWrapper pictures={acapulcoPhotos} />
 
       <StyledAccordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="acapulco-content"
-          id="acapulco-header"
+          aria-controls="llegada-content"
+          id="llegada-header"
         >
-          <StyledPageH4>Acapulco</StyledPageH4>
+          <StyledPageH4>La llegada</StyledPageH4>
         </AccordionSummary>
         <AccordionDetails>
           <StyledText>Donde comimos los primeros tacooos !!</StyledText>
+          <StyledText>
+            Realmente hicimos muuuuchas cosas! Aqui fue donde me llevaste a
+            conocer todos tus origenes y donde definitivamente me terminaste de
+            conquistar.
+          </StyledText>
+          <StyledText>
+            Pasamos nuestras tardes en el club y el pulpo, comimos tacos, me
+            presentaste a tus amigos y amigas, a tu familia... comimos tu
+            esquite favorito en el mundo, vimos la quebrada, fuimos a hacer las
+            compras del club juntitooos, el cumple de Max, nuestra tan querida
+            miqueta que siempre vamos a recordar...
+          </StyledText>
+          <StyledText>
+            Fue un sitio muy especial que nos unió mucho y donde pasamos unos
+            dias muy bonitos ❤️
+          </StyledText>
         </AccordionDetails>
       </StyledAccordion>
     </StyledPageContainer>
