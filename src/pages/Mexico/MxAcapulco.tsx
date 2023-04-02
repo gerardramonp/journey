@@ -47,6 +47,11 @@ const MxAcapulco = () => {
             miqueta que siempre vamos a recordar...
           </StyledText>
           <StyledText>
+            A parte, fuimos a la boda de tu amiga Ana, donde pasó uno de los
+            mayores eventos en la historia de la humanidad.... Gerard Ramon
+            Monte COMIÓ PESCADO 😱😱😱😱!!!!!!!!!
+          </StyledText>
+          <StyledText>
             Fue un sitio muy especial que nos unió mucho y donde pasamos unos
             dias muy bonitos ❤️
           </StyledText>
