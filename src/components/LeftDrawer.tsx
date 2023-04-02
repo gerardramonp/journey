@@ -40,6 +40,7 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
               selected={pathName === Routes.home}
               component={Link}
               to={Routes.home}
+              onClick={handleToggle}
             >
               <ListItemIcon>{<HomeRoundedIcon />}</ListItemIcon>
               <ListItemText primary={'Home'} />
@@ -51,6 +52,7 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
               selected={pathName === Routes.notes}
               component={Link}
               to={Routes.notes}
+              onClick={handleToggle}
             >
               <ListItemIcon>{<TextSnippetRoundedIcon />}</ListItemIcon>
               <ListItemText primary={'Notas'} />
@@ -76,6 +78,7 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
                 selected={pathName === Routes.mexicoHome}
                 component={Link}
                 to={Routes.mexicoHome}
+                onClick={handleToggle}
               >
                 <ListItemIcon>
                   <HomeRoundedIcon />
@@ -88,6 +91,7 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
                 selected={pathName === Routes.mexicoPuebla}
                 component={Link}
                 to={Routes.mexicoPuebla}
+                onClick={handleToggle}
               >
                 <ListItemIcon>
                   <ApartmentRoundedIcon />
@@ -99,6 +103,7 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
                 selected={pathName === Routes.mexicoAcapulco}
                 component={Link}
                 to={Routes.mexicoAcapulco}
+                onClick={handleToggle}
               >
                 <ListItemIcon>
                   <ApartmentRoundedIcon />
