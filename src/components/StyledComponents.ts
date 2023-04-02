@@ -46,6 +46,7 @@ export const StyledTextField = styled(TextField)`
 `;
 
 export const StyledAccordion = styled(Accordion)`
+  width: 100%;
   margin-bottom: 3rem;
 `;
 

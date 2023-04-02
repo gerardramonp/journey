@@ -1,12 +1,18 @@
 import styled from '@emotion/styled';
 import {
+  StyledAccordion,
   StyledFullWidthImg,
   StyledPageContainer,
+  StyledPageH4,
 } from '../../components/StyledComponents';
 import { Routes } from '../../routes/routes';
 import homePicture from '../../assets/photos/mexico/home/random.jpg';
 import TripCard from './TripCard';
 import NoteAddRoundedIcon from '@mui/icons-material/NoteAddRounded';
+import { AccordionSummary, AccordionDetails } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import mxFlag from '../../assets/flags/mxflag.jpg';
+import { Link } from 'react-router-dom';
 
 const StyledTitle = styled.h2`
   margin-bottom: 1rem;
@@ -26,6 +32,35 @@ const StyledFeaturesContainer = styled.div`
   align-items: center;
 `;
 
+const StyledHomeAccordion = styled(StyledAccordion)`
+  width: 80%;
+  margin-bottom: 3rem;
+`;
+
+const StyledAccordionSummary = styled(AccordionSummary)`
+  display: flex;
+  align-items: center;
+`;
+
+const StyledAccordionDetails = styled(AccordionDetails)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+`;
+
+const StyledFlag = styled.img`
+  width: 2.5rem;
+  border-radius: 0.15rem;
+  margin-right: 1.5rem;
+`;
+
+const StyledLink = styled(Link)`
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: none;
+`;
+
 const Home = () => {
   return (
     <StyledPageContainer>
@@ -40,7 +75,21 @@ const Home = () => {
           title="Notas"
           path={Routes.notes}
         />
-        <TripCard countryCode="MX" title="Mexico" path={Routes.mexicoHome} />
+        <StyledHomeAccordion defaultExpanded={true}>
+          <StyledAccordionSummary
+            className="accordion-summary"
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="mx-content"
+            id="mx-header"
+          >
+            <StyledFlag src={mxFlag} alt={'mx'} />
+            <StyledPageH4>Mexico</StyledPageH4>
+          </StyledAccordionSummary>
+          <StyledAccordionDetails>
+            <StyledLink to={Routes.mexicoPuebla}>Puebla</StyledLink>
+            <StyledLink to={Routes.mexicoAcapulco}>Acapulco</StyledLink>
+          </StyledAccordionDetails>
+        </StyledHomeAccordion>
       </StyledFeaturesContainer>
     </StyledPageContainer>
   );
