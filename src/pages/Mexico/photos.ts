@@ -2,7 +2,7 @@ function importAll(r: any) {
   return r.keys().map(r);
 }
 
-const sorthPhotos = (photos: string[]) => {
+const sortPhotos = (photos: string[]) => {
   return photos.sort((a: string, b: string) => {
     const aNumber = parseInt(
       a.split('/')[a.split('/').length - 1].split('.')[0]
@@ -38,6 +38,32 @@ export const rawAcapulcoPhotos = importAll(
   )
 );
 
-export const teotihuacanPhotos = sorthPhotos(rawTeotihuacanPhotos);
-export const cholulaPhotos = sorthPhotos(rawCholulaPhotos);
-export const acapulcoPhotos = sorthPhotos(rawAcapulcoPhotos);
+const rawCancunPhase1Photos = importAll(
+  (require as any).context(
+    '../../assets/photos/mexico/cancun/phase1',
+    false,
+    /\.(png|jpe?g|svg|jpg|PNG|JPG)$/
+  )
+);
+
+const rawCancunPhase2Photos = importAll(
+  (require as any).context(
+    '../../assets/photos/mexico/cancun/phase2',
+    false,
+    /\.(png|jpe?g|svg|jpg|PNG|JPG)$/
+  )
+);
+const rawCancunDespedidaPhotos = importAll(
+  (require as any).context(
+    '../../assets/photos/mexico/cancun/despedida',
+    false,
+    /\.(png|jpe?g|svg|jpg|PNG|JPG)$/
+  )
+);
+
+export const teotihuacanPhotos = sortPhotos(rawTeotihuacanPhotos);
+export const cholulaPhotos = sortPhotos(rawCholulaPhotos);
+export const acapulcoPhotos = sortPhotos(rawAcapulcoPhotos);
+export const cancunPhase1Photos = sortPhotos(rawCancunPhase1Photos);
+export const cancunPhase2Photos = sortPhotos(rawCancunPhase2Photos);
+export const cancunDespedidaPhotos = sortPhotos(rawCancunDespedidaPhotos);

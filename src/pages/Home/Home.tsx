@@ -88,6 +88,7 @@ const Home = () => {
           <StyledAccordionDetails>
             <StyledLink to={Routes.mexicoPuebla}>Puebla</StyledLink>
             <StyledLink to={Routes.mexicoAcapulco}>Acapulco</StyledLink>
+            <StyledLink to={Routes.mexicoCancun}>Cancún</StyledLink>
           </StyledAccordionDetails>
         </StyledHomeAccordion>
       </StyledFeaturesContainer>

@@ -8,6 +8,7 @@ import MxHome from '../pages/Mexico/MxHome';
 import MxPuebla from '../pages/Mexico/MxPuebla';
 import Notes from '../pages/Notes/Notes';
 import NotFound from '../pages/NotFound';
+import MxCancun from '../pages/Mexico/MxCancun';
 
 export enum Routes {
   home = '/',
@@ -16,6 +17,7 @@ export enum Routes {
   mexicoHome = '/mexico',
   mexicoPuebla = '/mexico/puebla',
   mexicoAcapulco = '/mexico/acapulco',
+  mexicoCancun = '/mexico/cancun',
 }
 
 export const routes: RouteObject[] = [
@@ -47,6 +49,10 @@ export const routes: RouteObject[] = [
       {
         path: Routes.mexicoAcapulco,
         element: <ProtectedRoute element={<MxAcapulco />} />,
+      },
+      {
+        path: Routes.mexicoCancun,
+        element: <ProtectedRoute element={<MxCancun />} />,
       },
     ],
   },
