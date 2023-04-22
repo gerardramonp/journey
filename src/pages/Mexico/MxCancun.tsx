@@ -37,7 +37,8 @@ const MxCancun: FC = () => {
         </AccordionSummary>
         <AccordionDetails>
           <StyledText>
-            Un family trip a Cancún, Playa del Carmen y Tulum!
+            Un family trip a Cancún, Playa del Carmen y Tulum! Donde me di el
+            famoso golpe del que tanto te has reido 🤣.
           </StyledText>
           <StyledText>
             Arrancamos el viaje directos hacia la segunda maravilla del mundo
