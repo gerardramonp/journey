@@ -125,15 +125,27 @@ const LeftDrawer: FC<LeftDrawerProps> = ({ isOpen, handleToggle }) => {
             </List>
           </Collapse>
 
-          <ListItem key={Routes.londonHome} disablePadding>
+          <ListItem key={Routes.london} disablePadding>
             <ListItemButton
-              selected={pathName === Routes.londonHome}
+              selected={pathName === Routes.london}
               component={Link}
-              to={Routes.londonHome}
+              to={Routes.london}
               onClick={handleToggle}
             >
               <ListItemIcon>{<FlagRoundedIcon />}</ListItemIcon>
               <ListItemText primary={'Londres'} />
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem key={Routes.rome} disablePadding>
+            <ListItemButton
+              selected={pathName === Routes.rome}
+              component={Link}
+              to={Routes.rome}
+              onClick={handleToggle}
+            >
+              <ListItemIcon>{<FlagRoundedIcon />}</ListItemIcon>
+              <ListItemText primary={'Roma'} />
             </ListItemButton>
           </ListItem>
         </List>

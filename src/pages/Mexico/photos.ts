@@ -69,6 +69,14 @@ const rawLondonPhotos = importAll(
   )
 );
 
+const rawRomePhotos = importAll(
+  (require as any).context(
+    '../../assets/photos/rome',
+    false,
+    /\.(png|jpe?g|svg|jpg|PNG|JPG)$/
+  )
+);
+
 export const teotihuacanPhotos = sortPhotos(rawTeotihuacanPhotos);
 export const cholulaPhotos = sortPhotos(rawCholulaPhotos);
 export const acapulcoPhotos = sortPhotos(rawAcapulcoPhotos);
@@ -76,3 +84,4 @@ export const cancunPhase1Photos = sortPhotos(rawCancunPhase1Photos);
 export const cancunPhase2Photos = sortPhotos(rawCancunPhase2Photos);
 export const cancunDespedidaPhotos = sortPhotos(rawCancunDespedidaPhotos);
 export const londonPhotos = sortPhotos(rawLondonPhotos);
+export const romePhotos = sortPhotos(rawRomePhotos);

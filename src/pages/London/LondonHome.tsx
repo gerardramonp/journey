@@ -24,8 +24,8 @@ const LondonHome: FC = () => {
       <StyledAccordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="llegada-content"
-          id="llegada-header"
+          aria-controls="london-content"
+          id="london-header"
         >
           <StyledPageH4>LONDRES</StyledPageH4>
         </AccordionSummary>
